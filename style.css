@@ -1,0 +1,1019 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1a1a2e;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Navbar ── */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.nav-logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.nav-cta {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 24px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+}
+
+.nav-cta:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fe324b 0%, #ff6b6b 50%, #ffa07a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 80%;
+  height: 150%;
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 120px 60px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 60px;
+}
+
+.hero-text {
+  flex: 1;
+  color: #fff;
+}
+
+.hero-text h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.hero-text .highlight {
+  background: linear-gradient(120deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  opacity: 0.95;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ── 캐러셀 ── */
+.hero-carousel-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  position: absolute;
+  width: 240px;
+  transition:
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.5s ease,
+    filter 0.5s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.carousel-slide img {
+  width: 100%;
+  display: block;
+}
+
+/* 위치별 스타일 */
+.carousel-slide[data-pos="0"] {
+  transform: translateX(0) scale(1);
+  z-index: 3;
+  cursor: default;
+  filter: brightness(1);
+}
+
+.carousel-slide[data-pos="-1"] {
+  transform: translateX(-58%) scale(0.7);
+  z-index: 2;
+  filter: brightness(0.55);
+}
+
+.carousel-slide[data-pos="1"] {
+  transform: translateX(58%) scale(0.7);
+  z-index: 2;
+  filter: brightness(0.55);
+}
+
+.carousel-slide[data-pos="-2"],
+.carousel-slide[data-pos="2"],
+.carousel-slide[data-pos="-3"],
+.carousel-slide[data-pos="3"] {
+  transform: translateX(0) scale(0.5);
+  z-index: 1;
+  filter: brightness(0.4);
+}
+
+.carousel-caption {
+  margin-top: 24px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  text-align: center;
+  height: 1.5em;
+  letter-spacing: 0.02em;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  justify-content: center;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: #fff;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.btn-subtitle {
+  display: block;
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+.btn-title {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.btn-appstore {
+  background: #000;
+  color: #fff;
+}
+
+.btn-playstore {
+  background: #fff;
+  color: #000;
+}
+
+.btn-large {
+  padding: 18px 36px;
+}
+
+.btn-large svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* ── Features ── */
+.features {
+  padding: 120px 20px;
+  background: #f8f9fa;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #1a1a2e;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 80px;
+}
+
+.feature-rows {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 100px;
+}
+
+.feature-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.feature-row:last-child {
+  margin-bottom: 0;
+}
+
+.feature-row-text {
+  flex: 1;
+}
+
+.feature-num {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #fe324b;
+  opacity: 0.18;
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.feature-row-text h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 16px;
+}
+
+.feature-row-text p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.85;
+}
+
+.feature-row-image {
+  flex: 0 0 240px;
+}
+
+.feature-row-image img {
+  width: 100%;
+  display: block;
+}
+
+/* ── Phone Frame (iPhone-style mockup) ── */
+.phone-frame {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(160deg, #2d2d2d 0%, #1a1a1a 55%, #242424 100%);
+  border-radius: 40px;
+  padding: 5px 4px 9px;
+  box-shadow:
+    0 0 0 1.5px #3e3e3e,
+    0 0 0 3px #111,
+    0 30px 70px rgba(0, 0, 0, 0.45);
+}
+
+/* Volume buttons - left side (up + down via box-shadow trick) */
+.phone-frame::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 72px;
+  width: 4px;
+  height: 26px;
+  background: #2c2c2c;
+  border-radius: 3px 0 0 3px;
+  box-shadow: 0 40px 0 #2c2c2c;
+}
+
+/* Power button - right side */
+.phone-frame::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 92px;
+  width: 4px;
+  height: 52px;
+  background: #2c2c2c;
+  border-radius: 0 3px 3px 0;
+}
+
+.phone-screen {
+  border-radius: 35px;
+  overflow: hidden;
+  background: #000;
+  line-height: 0;
+}
+
+/* Override any standalone img styles when inside phone frame */
+.phone-screen img {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.phone-home-bar {
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-home-bar::after {
+  content: '';
+  width: 96px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 2px;
+}
+
+/* ── Extension Now Section ── */
+.ext-now-section {
+  padding: 100px 20px;
+  background: #fff;
+}
+
+.ext-now-inner {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ext-now-left {
+  flex: 1;
+}
+
+.ext-now-right {
+  flex: 1;
+}
+
+.ext-now-badge {
+  display: inline-block;
+  padding: 5px 16px;
+  border-radius: 50px;
+  background: rgba(40, 200, 64, 0.1);
+  border: 1px solid rgba(40, 200, 64, 0.4);
+  color: #1a8a2e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.ext-now-right h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 20px;
+  color: #1a1a2e;
+}
+
+.ext-now-right p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.85;
+  margin-bottom: 36px;
+}
+
+.btn-chrome-install {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: #1a1a2e;
+  color: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-chrome-install:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn-chrome-install svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* Extension Now - 데모 브라우저 내부 */
+.ext-now-webpage {
+  padding: 20px 20px 20px;
+  background: #f8f9fa;
+}
+
+.ext-now-text-block {
+  font-size: 1rem;
+  color: #333;
+  line-height: 2.1;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+.ext-hl {
+  background: rgba(254, 50, 75, 0.12);
+  border-bottom: 2px solid #fe324b;
+  padding: 0 2px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.ext-now-popup {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  max-width: 260px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ext-popup-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.ext-popup-word {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #1a1a2e;
+}
+
+.ext-popup-reading {
+  font-size: 0.88rem;
+  color: #888;
+}
+
+.ext-popup-jlpt {
+  margin-left: auto;
+  background: #fe324b;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.ext-popup-meaning {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.ext-popup-example {
+  font-size: 0.8rem;
+  color: #aaa;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* ── Chrome Extension Section ── */
+.extension-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 60%, #0d2137 100%);
+}
+
+.extension-inner {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.extension-left {
+  flex: 1;
+  color: #fff;
+}
+
+.extension-badge {
+  display: inline-block;
+  padding: 5px 16px;
+  border-radius: 50px;
+  background: rgba(254, 50, 75, 0.18);
+  border: 1px solid rgba(254, 50, 75, 0.5);
+  color: #ff7a8a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.extension-left h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 20px;
+}
+
+.extension-left p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.85;
+  margin-bottom: 36px;
+}
+
+.extension-platforms {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.platform-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.platform-pill svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.btn-ext-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: rgba(254, 50, 75, 0.2);
+  border: 1px solid rgba(254, 50, 75, 0.4);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.btn-ext-cta svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Extension 데모 UI */
+.extension-right {
+  flex: 1;
+}
+
+.demo-browser {
+  background: #1c1c2e;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.demo-browser-bar {
+  background: #252535;
+  padding: 11px 16px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.demo-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.demo-dot.red    { background: #ff5f57; }
+.demo-dot.yellow { background: #ffbd2e; }
+.demo-dot.green  { background: #28c840; }
+
+.demo-url {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.73rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin-left: 8px;
+  font-family: monospace;
+}
+
+.demo-content {}
+
+.demo-video-area {
+  background: #000;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-subtitle-area {
+  padding: 18px 20px;
+  background: #1c1c2e;
+}
+
+.demo-subtitle-text {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.88);
+  text-align: center;
+  margin-bottom: 14px;
+  letter-spacing: 0.03em;
+}
+
+.demo-word-clickable {
+  background: rgba(254, 50, 75, 0.25);
+  border-bottom: 2px solid #fe324b;
+  padding: 0 3px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.demo-popup {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  color: #1a1a2e;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.demo-popup-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.demo-popup-word {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.demo-popup-reading {
+  font-size: 0.88rem;
+  color: #888;
+}
+
+.demo-popup-meaning {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.demo-popup-btn {
+  background: #fe324b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+/* ── CTA ── */
+.cta {
+  padding: 120px 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* ── Footer ── */
+.footer {
+  background: #0d0d1a;
+  padding: 60px 20px 30px;
+  color: #fff;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.footer-logo img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 32px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-copyright {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.9rem;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .extension-inner {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 968px) {
+  /* Hero */
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 120px 24px 60px;
+    gap: 40px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle br {
+    display: none;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  /* Carousel */
+  .carousel-wrapper {
+    height: 450px;
+  }
+
+  .carousel-slide {
+    width: 190px;
+  }
+
+  /* Features */
+  .feature-row,
+  .feature-row.reverse {
+    flex-direction: column;
+    gap: 36px;
+    margin-bottom: 64px;
+    text-align: center;
+  }
+
+  .feature-row-image {
+    flex: none;
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  /* Extension Now */
+  .ext-now-inner {
+    flex-direction: column;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .btn-chrome-install {
+    margin: 0 auto;
+  }
+
+  /* Extension */
+  .extension-inner {
+    flex-direction: column;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .extension-platforms {
+    justify-content: center;
+  }
+
+  .btn-ext-cta {
+    margin: 0 auto;
+  }
+
+  /* Navbar */
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    margin-bottom: 48px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+  }
+
+  .btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .carousel-wrapper {
+    height: 390px;
+  }
+
+  .carousel-slide {
+    width: 160px;
+  }
+
+  .feature-row-text h3 {
+    font-size: 1.4rem;
+  }
+
+  .extension-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
