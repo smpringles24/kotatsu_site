@@ -20,7 +20,7 @@
         </div>
         <div class="nav-links">
           <a href="#features">기능</a>
-          <a href="#extension-now">익스텐션</a>
+          <a href="#extension">익스텐션</a>
           <a href="#download" class="nav-cta">다운로드</a>
         </div>
       </nav>
@@ -63,6 +63,50 @@
           <div class="carousel-wrapper" id="carouselWrapper"></div>
           <p class="carousel-caption" id="carouselCaption"></p>
           <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+      </div>
+
+      <!-- Chrome Extension 연결 파트 -->
+      <div class="hero-ext-section">
+        <div class="hero-bridge">
+          <div class="hero-bridge-line"></div>
+          <p>크롬에서 발견한 단어를 앱에서 바로 복습하세요</p>
+          <div class="hero-bridge-line"></div>
+        </div>
+        <div class="hero-ext-row">
+          <div class="hero-ext-left">
+            <p class="hero-ext-desc">웹 브라우징 중 모르는 일본어 단어를<br />클릭 한 번으로 앱 단어장에 저장할 수 있습니다.</p>
+            <a href="#" class="btn btn-chrome-hero" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width:28px;height:28px;flex-shrink:0">
+                <path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7s2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"/>
+              </svg>
+              <div>
+                <span class="btn-subtitle">Available on</span>
+                <span class="btn-title">Chrome Web Store</span>
+              </div>
+            </a>
+          </div>
+          <div class="hero-ext-right">
+            <div class="demo-browser">
+              <div class="demo-browser-bar">
+                <span class="demo-dot red"></span>
+                <span class="demo-dot yellow"></span>
+                <span class="demo-dot green"></span>
+                <div class="demo-url">ja.wikipedia.org/wiki/東京</div>
+              </div>
+              <div class="ext-now-webpage">
+                <p class="ext-now-text-block">東京は日本の<span class="ext-hl">首都</span>であり、<br />世界最大級の都市圏を形成しています。</p>
+                <div class="ext-now-popup">
+                  <div class="ext-popup-row">
+                    <span class="ext-popup-word">首都</span>
+                    <span class="ext-popup-reading">しゅと</span>
+                    <span class="ext-popup-jlpt">N2</span>
+                  </div>
+                  <div class="ext-popup-meaning">수도, 나라의 중심 도시</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -157,56 +201,6 @@
       </div>
     </section>
 
-    <!-- Chrome Extension - 현재 지원 기능 -->
-    <section id="extension-now" class="ext-now-section">
-      <div class="container">
-        <div class="ext-now-inner">
-          <!-- 좌: 데모 UI -->
-          <div class="ext-now-left">
-            <div class="demo-browser">
-              <div class="demo-browser-bar">
-                <span class="demo-dot red"></span>
-                <span class="demo-dot yellow"></span>
-                <span class="demo-dot green"></span>
-                <div class="demo-url">ja.wikipedia.org/wiki/東京</div>
-              </div>
-              <div class="ext-now-webpage">
-                <p class="ext-now-text-block">東京は日本の<span class="ext-hl">首都</span>であり、<br />世界最大級の都市圏を形成しています。</p>
-                <div class="ext-now-popup">
-                  <div class="ext-popup-row">
-                    <span class="ext-popup-word">首都</span>
-                    <span class="ext-popup-reading">しゅと</span>
-                    <span class="ext-popup-jlpt">N2</span>
-                  </div>
-                  <div class="ext-popup-meaning">수도, 나라의 중심 도시</div>
-                  <div class="ext-popup-example">東京は日本の首都です。</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 우: 텍스트 -->
-          <div class="ext-now-right">
-            <span class="ext-now-badge">지금 사용 가능</span>
-            <h2>웹에서 일본어 단어,<br />바로 찾아보세요</h2>
-            <p>
-              어떤 일본어 웹페이지에서든<br />
-              모르는 단어나 문장을 클릭하면<br />
-              뜻, 발음, JLPT 레벨 정보를 즉시 확인할 수 있습니다.
-            </p>
-            <!-- Chrome Web Store URL을 아래 href에 입력하세요 -->
-            <a href="#" class="btn-chrome-install" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7s2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"
-                />
-              </svg>
-              크롬 웹스토어에서 설치
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Chrome Extension - 예정 기능 -->
     <section id="extension" class="extension-section">

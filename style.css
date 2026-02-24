@@ -434,6 +434,69 @@ body {
   border-radius: 2px;
 }
 
+/* ── Hero Chrome Extension Button ── */
+.btn-chrome-hero {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.btn-chrome-hero:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Hero Extension Section ── */
+.hero-ext-section {
+  padding: 0 60px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-bridge {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 40px 0 48px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.hero-bridge-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hero-ext-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.hero-ext-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  color: #fff;
+}
+
+.hero-ext-desc {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+.hero-ext-right {
+  flex: 1;
+}
+
 /* ── Extension Now Section ── */
 .ext-now-section {
   padding: 100px 20px;
@@ -908,6 +971,26 @@ body {
 
   .hero-buttons {
     justify-content: center;
+  }
+
+  /* Hero Extension Section */
+  .hero-ext-section {
+    padding: 0 24px 60px;
+  }
+
+  .hero-bridge {
+    white-space: normal;
+    font-size: 0.95rem;
+  }
+
+  .hero-ext-row {
+    flex-direction: column;
+    gap: 36px;
+    text-align: center;
+  }
+
+  .hero-ext-left {
+    align-items: center;
   }
 
   /* Carousel */
